@@ -39,7 +39,6 @@ class NoteDialogFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View {
         _bind = DialogNoteBinding.inflate(inflater, container, false)
-        bind.root.inVisible()
         return bind.root
     }
 
@@ -113,10 +112,6 @@ class NoteDialogFragment : DialogFragment() {
         viewModel.noteData.observe(viewLifecycleOwner) { noteEntity ->
             noteEntity?.let {
                 bind.etNote.setText(it.note)
-                if (!bind.root.isVisible) {
-                    bind.root.visible()
-                }
-
             }
         }
     }
